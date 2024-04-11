@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  quoters:
+    image: javajon/quoters:1.0.0
+    ports:
+      - "8080:8080"
+
+  consumingrest:
+    build: .
+    environment:
+      - quoters_base_url=http://quoters:8080
+    depends_on:
+      - quoters
+    entrypoint: ["/bin/sh", "-c", "./wait-for-it.sh -t 60 quoters:8080 -- node index.js"]

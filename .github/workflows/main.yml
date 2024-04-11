@@ -1,0 +1,27 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Run docker-compose
+      run: |
+        docker-compose up -d --build
+        sleep 60
+
+    - name: Output logs for debugging
+      run: docker-compose logs
+
+    - name: Clean up
+      run: docker-compose down
