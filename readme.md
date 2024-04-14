@@ -22,7 +22,7 @@ kubectl get all -l run=quoters
 ```
 kubectl apply -f deployment.yaml
 ```
-2. **Check out the Hash code for the pod:**
+2. **Check out the pod with its Hash code:**
 ```
 kubectl get pods                      
 ```
