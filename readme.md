@@ -30,4 +30,6 @@ kubectl get pods
 ```
 kubectl logs <pod-name>
 ```
-Replace <pod-name> with the actual name of your client pod obtained from the previous step, which should be like <consumingrest-the Hash code K8s automatically generated for the pod>.   
+Replace <pod-name> with the actual name of your client pod obtained from the previous step, which should be like this:  
+consumingrest-6ff59c76c6-5j8vg  
+and then you should see 4 calls to the Quoters Service.
