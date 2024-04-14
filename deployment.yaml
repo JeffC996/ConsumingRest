@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: consumingrest-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: consumingrest
+  template:
+    metadata:
+      labels:
+        app: consumingrest
+    spec:
+      containers:
+      - name: consumingrest
+        image: jeffyf/consumingrest
+        ports:
+        - containerPort: 8080
+        env:
+        - name: quoters_base_url
+          value: "http://quoters:8080"
