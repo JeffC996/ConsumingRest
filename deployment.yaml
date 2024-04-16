@@ -19,4 +19,8 @@ spec:
         - containerPort: 8080
         env:
         - name: quoters_base_url
-          value: "http://quoters:8080"
+          value: "http://quoters.default:8080"
+          #if they are under the same namespace ->"http://quoters:8080"
+
+# name.namespace.svc.cluster.local
+# http://quoters:8080/
